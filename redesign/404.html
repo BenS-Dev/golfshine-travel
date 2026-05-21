@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Page Not Found — Wingolf Travel</title>
-  <meta name="description" content="The page you were looking for could not be found. Return to Wingolf Travel — luxury journeys and golf travel." />
+  <title>404 Page Not Found — Wingolf Travel</title>
+  <meta name="description" content="This Wingolf Travel page was not found. Return home, browse golf destinations, or contact Gulfshine Travel for help planning your trip." />
   <meta name="robots" content="noindex" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -49,17 +49,51 @@
 
 <main id="main">
 
-  <section class="hero hero--inner">
+  <section class="hero hero--inner error-hero">
     <div class="hero__media">
-      <img src="assets/images/hero/hero-argentina.jpg" alt="" loading="eager" decoding="async" />
+      <img src="assets/images/hero/hero-golf.jpeg" alt="" loading="eager" decoding="async" />
     </div>
     <div class="container hero__inner">
-      <span class="eyebrow eyebrow--light">404</span>
-      <h1 class="hero__title">This page has <em>wandered off</em>.</h1>
-      <p class="hero__sub">The page you were looking for can't be found — but the rest of the world is right where you left it.</p>
+      <span class="error-code" aria-label="Error 404">404</span>
+      <span class="eyebrow eyebrow--light">Page not found</span>
+      <h1 class="hero__title">This page is not <em>available</em>.</h1>
+      <p class="hero__sub">The link may be old, the address may be mistyped, or the page may have moved. Start again below and we will get you back to the trip you were looking for.</p>
       <div class="hero__cta">
         <a class="btn btn--primary btn--lg" href="index.html">Return Home</a>
-        <a class="btn btn--ghost btn--lg" href="destinations.html">Browse Destinations</a>
+        <a class="btn btn--ghost btn--lg" href="golf.html">Browse Golf Travel</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--cream error-options" aria-labelledby="error-options-title">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Where to go next</span>
+        <h2 id="error-options-title">Find the right starting point.</h2>
+        <p class="lead">Choose a main section, or contact us if you were expecting a specific itinerary.</p>
+      </div>
+
+      <div class="error-options__grid">
+        <a class="error-option" href="visit-argentina.html">
+          <span class="error-option__kicker">Argentina</span>
+          <strong>Visit Argentina</strong>
+          <span>Classic programs, Patagonia, Buenos Aires, Iguazu, wine country, and custom extensions.</span>
+        </a>
+        <a class="error-option" href="golf.html">
+          <span class="error-option__kicker">Wingolf</span>
+          <strong>Golf Travel</strong>
+          <span>Argentina, Europe, the Caribbean, the USA, UK, Ireland, and Scandinavia.</span>
+        </a>
+        <a class="error-option" href="destinations.html">
+          <span class="error-option__kicker">Explore</span>
+          <strong>Destinations</strong>
+          <span>Browse regions and featured places for private travel planning.</span>
+        </a>
+        <a class="error-option" href="contact.html">
+          <span class="error-option__kicker">Help</span>
+          <strong>Contact Gulfshine</strong>
+          <span>Tell us what page or trip you wanted and we will point you in the right direction.</span>
+        </a>
       </div>
     </div>
   </section>

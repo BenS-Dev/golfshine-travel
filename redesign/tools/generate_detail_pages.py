@@ -156,6 +156,7 @@ def render_body(bodies: list[str]) -> str:
 
 def main():
     count = 0
+    courses_dir = REDESIGN / "assets" / "images" / "golf" / "courses"
     with CSV_PATH.open(encoding="utf-8") as fh:
         for row in csv.DictReader(fh):
             if row["status"] != "matched":
@@ -164,13 +165,14 @@ def main():
             if not bodies:
                 print(f"  skip (no bodies): {row['country_slug']}/{row['course_slug']}")
                 continue
-            ext = row["hero_ext"] or "jpg"
-            image_name = f"{row['country_slug']}-{row['course_slug']}.{ext}"
-            # Make sure image exists; if not, log + skip
-            img_path = REDESIGN / "assets" / "images" / "golf" / "courses" / image_name
-            if not img_path.exists():
+            # Find whichever extension actually exists on disk (extract_hero_images may have
+            # written the country-fallback image with a different extension than the legacy).
+            stem = f"{row['country_slug']}-{row['course_slug']}"
+            candidates = sorted(courses_dir.glob(f"{stem}.*"))
+            if not candidates:
                 print(f"  skip (no image): {row['country_slug']}/{row['course_slug']}")
                 continue
+            image_name = candidates[0].name
 
             meta = bodies[0][:155].rstrip()
             if len(bodies[0]) > 155:

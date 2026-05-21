@@ -47,20 +47,19 @@ def tile_html(row: dict) -> str:
     region = row["region"]
     country_name = row["country_name"]
 
-    if row["status"] == "matched":
-        href = f"{country}/{course_slug}.html"
-        ext = row["hero_ext"] or "jpg"
-        img_name = f"{country}-{course_slug}.{ext}"
-        # confirm image exists
-        if not (COURSES_IMG_DIR / img_name).exists():
-            img_name = COUNTRY_FALLBACK.get(country, "scotland-st-andrews.jpg")
-            img_src = f"../assets/images/golf/{img_name}"
-        else:
-            img_src = f"../assets/images/golf/courses/{img_name}"
+    stem = f"{country}-{course_slug}"
+    candidates = sorted(COURSES_IMG_DIR.glob(f"{stem}.*"))
+    if candidates:
+        img_src = f"../assets/images/golf/courses/{candidates[0].name}"
     else:
-        href = f"../contact.html?inquiry={quote_plus(course)}"
         img_name = COUNTRY_FALLBACK.get(country, "scotland-st-andrews.jpg")
         img_src = f"../assets/images/golf/{img_name}"
+
+    if row["status"] == "matched":
+        href = f"{country}/{course_slug}.html"
+    else:
+        # image-only and no-detail both link to contact form
+        href = f"../contact.html?inquiry={quote_plus(course)}"
 
     return (
         f'        <a class="tile" href="{esc(href)}">\n'
@@ -72,6 +71,11 @@ def tile_html(row: dict) -> str:
 
 STACK_LG_RE = re.compile(
     r'<div class="stack-lg" style="margin-top: var\(--space-2xl\);">.*?</div>',
+    re.S,
+)
+# Existing tile grid (idempotent re-runs).
+TILE_GRID_RE = re.compile(
+    r'<div class="grid grid--3 grid--gap-sm" style="margin-top: var\(--space-2xl\);">.*?</div>\s*</div>\s*</section>',
     re.S,
 )
 NARROW_TO_WIDE_RE = re.compile(r'<div class="container container--narrow">')
@@ -99,13 +103,18 @@ def main():
             + '\n      </div>'
         )
 
+        # Try old stack-lg first; if not present, replace existing tile grid.
         new_src, n = STACK_LG_RE.subn(new_grid, src, count=1)
         if n == 0:
-            print(f"  skip (no stack-lg block): {country}")
-            continue
+            # Idempotent: replace existing tile grid block (preserving the </div></section> trailer).
+            existing_grid = TILE_GRID_RE.search(src)
+            if existing_grid:
+                new_src = src[:existing_grid.start()] + new_grid + "\n    </div>\n  </section>" + src[existing_grid.end():]
+            else:
+                print(f"  skip (no grid found): {country}")
+                continue
 
-        # widen container for the courses section so tiles aren't cramped
-        # find the most recent `container--narrow` BEFORE the (now-replaced) grid block; safest: replace only the FIRST instance.
+        # widen container for the courses section (only meaningful on first pass)
         new_src = NARROW_TO_WIDE_RE.sub('<div class="container">', new_src, count=1)
 
         page_path.write_text(new_src, encoding="utf-8")

@@ -1,9 +1,11 @@
 #!/usr/bin/env python3
-"""Build COURSE_MAP.csv mapping redesign country-page courses to legacy sitepro detail files.
+"""Build COURSE_MAP.csv from current state of redesign/golf/{country}.html.
 
-Strict seed-only mapping — no fuzzy fallbacks. Any course not listed in SEED becomes
-status=no-detail (tile links to contact form). This prevents fabricated content per the
-user's primary constraint.
+Parses EITHER the original stack-lg `<article>` Course/Hotel blocks OR the rewritten
+tile grid (so the script is idempotent across re-runs). Hotel info is carried forward
+from the previous CSV when available (since tile HTML doesn't include it).
+
+Strict seed-only legacy mapping. Courses not in SEED → status=no-detail.
 """
 import csv
 import html
@@ -28,6 +30,7 @@ COUNTRY_NAME = {
     "greece": "Greece", "sweden": "Sweden", "denmark": "Denmark", "norway": "Norway",
 }
 
+# Old format: stack-lg article blocks.
 ARTICLE_RE = re.compile(
     r"<article>\s*<h2>(?P<region>[^<]+)</h2>\s*"
     r"<ul class=\"stack\">\s*"
@@ -37,23 +40,65 @@ ARTICLE_RE = re.compile(
     re.IGNORECASE,
 )
 
-# Hand-curated mapping from current-redesign course names → legacy sitepro file number.
-# Only courses with real prose in the legacy file appear here. Built by reading every
-# wb-stl-heading1 first-paragraph snippet in sitepro/ and matching to redesign content.
+# New format: tile grid <a class="tile">…<span class="tile__region">REGION · COUNTRY</span><h3 class="tile__name">COURSE</h3>
+TILE_RE = re.compile(
+    r'<a class="tile" href="[^"]*">\s*'
+    r'<img[^>]*>\s*'
+    r'<div class="tile__body">\s*'
+    r'<span class="tile__region">(?P<region>[^<]+?) · [^<]+</span>\s*'
+    r'<h3 class="tile__name">(?P<course>[^<]+)</h3>\s*'
+    r'</div>\s*</a>',
+    re.IGNORECASE,
+)
+
+# Image-only mapping: legacy pages with usable gallery imagery but minimal prose.
+# Used for hero image only; tile still links to contact form (no detail page).
+IMAGE_ONLY_SEED = {
+    # Scotland
+    "Fairmont St. Andrews": "90",
+    # Spain
+    "Sitges Terramar Golf Club": "108",
+    "Llavaneras Golf Club": "109",
+    "Campo de Golf El Saler": "110",
+    # Portugal
+    "Oitavos Dunes Golf Course": "113",
+    "Praia D'El Rey Golf & Beach Resort": "114",
+    # France
+    "Evian Golf Club": "152",
+    # Italy
+    "Pevero Golf Club": "121",
+    "Gardagolf Country Club": "118",
+    "Circolo Golf Villa d'Este": "119",
+    "Circolo del Golf di Roma": "122",
+    "Argentario Golf & Wellness Resort": "117",
+    # Netherlands
+    "The International": "163",
+    "Koninklijke Haagsche Golf & Country Club": "164",
+    "Golf & Country Club Lauswolt": "165",
+    # Germany
+    "Golf and Country Club Berlin-Wannsee e.V.": "169",
+    "Golfclub München Eichenried": "168",
+    # Sweden
+    "Halmstad Golfklubb and Hotel Resort": "157",
+    # Wales
+    "Royal Porthcawl Golf Club": "156",
+}
+
+# Hand-curated mapping — only courses with real legacy prose.
 SEED = {
     # Scotland
     "St. Andrews Links — Old Course": "91",
     "Fairmont St. Andrews": None,
     "Cabot Highlands": "92",
-    "Royal Dornich Championship Course": "94",  # Royal Dornoch
+    "Royal Dornoch Championship Course": "94",
     "Royal Aberdeen Golf Club": "100",
     "Trump International": "98",
-    "The Bruntsflield Links": "93",
+    "The Bruntsfield Links": "93",
     "Gullane Golf Club": "95",
     # Ireland
     "Killarney G.C. Killen": "86",
     "Ballyliffin Golf Club": "85",
-    "Royal Portrush Golf Club — Dunlance Links": "77",
+    "Royal Portrush Golf Club — Dunluce Links": "77",
     "Tralee Golf Club": "87",
     "Portmarnock Golf Club (Old)": "88",
     "Carton House Golf Club": "89",
@@ -64,7 +109,7 @@ SEED = {
     # Spain
     "Los Naranjos Golf Club": "106",
     "Los Monteros Golf": "105",
-    "Real Club La Herreria": "104",
+    "Real Club La Herrería": "104",
     "Rio Real Golf & Hotel": "107",
     "Sitges Terramar Golf Club": None,
     "Llavaneras Golf Club": None,
@@ -72,17 +117,17 @@ SEED = {
     # Portugal
     "Vale do Lobo Golf Club": "111",
     "Troia Golf": "112",
-    "Oitavos Dunes Golf Course": None,  # 113 is empty
-    "Praia D'El Rey Golf & Beach Resort": None,  # 114 reuses Troia text (junk)
+    "Oitavos Dunes Golf Course": None,
+    "Praia D'El Rey Golf & Beach Resort": None,
     "Palmares Ocean Living & Golf": "115",
     "Oporto Golf Club": "116",
     # France
     "Le Golf Terre Blanches": "153",
-    "Evian Golf Club": None,  # 152 is empty
+    "Evian Golf Club": None,
     "Golf du Medoc": "144",
     # Italy
     "Pevero Golf Club": None,
-    "Garrdagolf Country Club": None,
+    "Gardagolf Country Club": None,
     "Circolo Golf Villa d'Este": None,
     "Circolo del Golf di Roma": None,
     "Royal Park Roveri": "123",
@@ -102,10 +147,10 @@ SEED = {
     # Greece
     "The Bay Course": "133",
     "The Dunes Course": "131",
-    "Glufada Golf Club of Athens": "136",  # 136 is actually Porto Carras (legacy title says ATHENS but content is Porto Carras)
+    "Glyfada Golf Club of Athens": "136",
     "Corfu Golf Club": "145",
     # Sweden
-    "Halmstad Golfklubb and Hotel Resort": None,  # 157 empty
+    "Halmstad Golfklubb and Hotel Resort": None,
     "PGA of Sweden National": "160",
     "Bro Hof Slott Golf Club": "161",
     # Denmark
@@ -121,7 +166,14 @@ SEED = {
     "Vestfold Golf Club": "129",
 }
 
-# ---------- Legacy scan ----------
+# Minimum body paragraphs required to qualify as a detail page.
+MIN_BODIES = 2
+
+# Hotel-name corrections (display only; doesn't affect slugs).
+HOTEL_CORRECTIONS = {
+    "Malmoison Edinburgh": "Malmaison Edinburgh",
+    "Malmoison Aberdeen": "Malmaison Aberdeen",
+}
 
 H1_RE = re.compile(r'<h1 class="wb-stl-heading1"[^>]*>(.*?)</h1>', re.S)
 TITLE_RE = re.compile(r"<title>([^<]+)</title>", re.I)
@@ -143,10 +195,24 @@ def slugify(text: str) -> str:
 
 
 def parse_country_page(country_slug: str):
+    """Yield (region, course) dicts. Tries new tile grid first, then old stack-lg."""
     path = REDESIGN / "golf" / f"{country_slug}.html"
     if not path.exists():
         return
     src = path.read_text(encoding="utf-8")
+    tiles = list(TILE_RE.finditer(src))
+    if tiles:
+        for m in tiles:
+            region = html.unescape(m.group("region")).strip()
+            course = html.unescape(m.group("course")).strip()
+            yield {
+                "country_slug": country_slug,
+                "country_name": COUNTRY_NAME[country_slug],
+                "region": region,
+                "course": course,
+                "course_slug": slugify(course),
+            }
+        return
     for m in ARTICLE_RE.finditer(src):
         region = html.unescape(m.group("region")).strip()
         course = html.unescape(m.group("course")).strip()
@@ -161,46 +227,85 @@ def parse_country_page(country_slug: str):
         }
 
 
+def load_previous_hotels() -> dict:
+    """Return {(country_slug, course_slug_normalised_to_slug_of_fixed_name): hotel}.
+    We index by (country_slug, slug-of-current-course-name) when possible, else by
+    (country_slug, region) as fallback.
+    """
+    out_by_slug: dict[tuple[str, str], str] = {}
+    out_by_region: dict[tuple[str, str], str] = {}
+    if not OUT_CSV.exists():
+        return {"by_slug": out_by_slug, "by_region": out_by_region}
+    with OUT_CSV.open(encoding="utf-8") as fh:
+        for row in csv.DictReader(fh):
+            slug = row.get("course_slug", "")
+            region = row.get("region", "")
+            hotel = row.get("hotel", "")
+            country = row.get("country_slug", "")
+            if hotel:
+                out_by_slug[(country, slug)] = hotel
+                out_by_region[(country, region)] = hotel
+    return {"by_slug": out_by_slug, "by_region": out_by_region}
+
+
 def legacy_page_info(n: str) -> dict:
-    """Read sitepro/{n}.php and return {hero_hash, bodies, title}. bodies are stripped text."""
     php = SITEPRO / f"{n}.php"
     if not php.exists():
-        return {"hero_hash": "", "bodies": [], "title": ""}
+        return {"hero_hash": "", "hero_ext": "jpg", "bodies": [], "title": "", "all_hashes": ""}
     src = php.read_text(encoding="utf-8", errors="ignore")
     bodies = []
     for raw in H1_RE.findall(src):
         txt = html.unescape(strip_tags(raw)).strip()
+        txt = re.sub(r"\s+", " ", txt)
         if len(txt) >= 30:
             bodies.append(txt)
     title_match = TITLE_RE.search(src)
     title = html.unescape(title_match.group(1)).strip() if title_match else ""
-    hash_match = IMG_JSON_RE.search(src)
-    hero_hash = hash_match.group(1) if hash_match else ""
-    hero_ext = hash_match.group(2) if hash_match else "jpg"
-    return {"hero_hash": hero_hash, "hero_ext": hero_ext, "bodies": bodies, "title": title}
+    matches = IMG_JSON_RE.findall(src)
+    hero_hash = matches[0][0] if matches else ""
+    hero_ext = matches[0][1] if matches else "jpg"
+    all_hashes = "|".join(f"{h}:{ext}" for h, ext in matches)
+    return {"hero_hash": hero_hash, "hero_ext": hero_ext, "bodies": bodies, "title": title, "all_hashes": all_hashes}
 
 
 def main():
+    prev = load_previous_hotels()
+
     rows = []
-    seen_slugs = set()
+    seen = set()
     for country in COUNTRY_PAGES:
         for entry in parse_country_page(country):
+            slug_key = (entry["country_slug"], entry["course_slug"])
+            if slug_key in seen:
+                continue
+            seen.add(slug_key)
+
+            hotel = entry.get("hotel") or prev["by_slug"].get(slug_key) or prev["by_region"].get((entry["country_slug"], entry["region"])) or ""
+            hotel = HOTEL_CORRECTIONS.get(hotel, hotel)
+
             seed_php = SEED.get(entry["course"])
-            if seed_php is None:
-                php, hero, hero_ext, status, bodies = "", "", "", "no-detail", 0
-            else:
+            all_hashes = ""
+            php, hero, hero_ext, status, bodies = "", "", "", "no-detail", 0
+
+            if seed_php is not None:
                 info = legacy_page_info(seed_php)
                 bodies = len(info["bodies"])
-                if bodies < 3:
-                    php, hero, hero_ext, status = "", "", "", "no-detail"
-                else:
-                    php, hero, hero_ext, status = seed_php, info["hero_hash"], info["hero_ext"], "matched"
+                if bodies >= MIN_BODIES:
+                    php = seed_php
+                    hero, hero_ext = info["hero_hash"], info["hero_ext"]
+                    all_hashes = info["all_hashes"]
+                    status = "matched"
 
-            # dedupe duplicate (region, course) rows — e.g. Greece has The Dunes Course twice
-            slug_key = (entry["country_slug"], entry["course_slug"])
-            if slug_key in seen_slugs:
-                continue
-            seen_slugs.add(slug_key)
+            # Image-only: status stays no-detail, but we record imagery from a legacy page.
+            if status == "no-detail":
+                img_php = IMAGE_ONLY_SEED.get(entry["course"])
+                if img_php:
+                    info = legacy_page_info(img_php)
+                    if info["hero_hash"]:
+                        hero, hero_ext = info["hero_hash"], info["hero_ext"]
+                        all_hashes = info["all_hashes"]
+                        php = img_php  # used by extract script
+                        status = "image-only"
 
             rows.append({
                 "country_slug": entry["country_slug"],
@@ -208,11 +313,12 @@ def main():
                 "region": entry["region"],
                 "course_name": entry["course"],
                 "course_slug": entry["course_slug"],
-                "hotel": entry["hotel"],
+                "hotel": hotel,
                 "legacy_php": php,
                 "legacy_bodies": bodies,
                 "hero_hash": hero,
                 "hero_ext": hero_ext,
+                "all_hashes": all_hashes,
                 "status": status,
             })
 
@@ -222,18 +328,13 @@ def main():
         w.writeheader()
         w.writerows(rows)
 
-    by_status = {}
+    by_status: dict[str, list] = {}
     for r in rows:
         by_status.setdefault(r["status"], []).append(r)
     print(f"Total courses: {len(rows)}")
     for s, items in by_status.items():
         print(f"  {s}: {len(items)}")
     print(f"\nWrote {OUT_CSV}")
-
-    print("\nmatched details:")
-    for r in rows:
-        if r["status"] == "matched":
-            print(f"  {r['country_slug']:12s}  {r['course_name']:50s}  → sitepro/{r['legacy_php']}.php  (hero={r['hero_hash'][:8]})")
 
 
 if __name__ == "__main__":
