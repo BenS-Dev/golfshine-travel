@@ -1,0 +1,117 @@
+/* ==========================================================================
+   Layout — container, sections, grids
+   ========================================================================== */
+
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: var(--container-pad);
+  padding-right: var(--container-pad);
+}
+
+.container--narrow { max-width: 1080px; }
+.container--wide   { max-width: 1640px; }
+
+/* Section rhythm */
+.section {
+  padding-top: clamp(72px, 9vw, 144px);
+  padding-bottom: clamp(72px, 9vw, 144px);
+}
+
+.section--tight {
+  padding-top: clamp(48px, 6vw, 88px);
+  padding-bottom: clamp(48px, 6vw, 88px);
+}
+
+.section--dark {
+  background: var(--color-deep-green);
+  color: var(--text-light);
+}
+
+.section--charcoal {
+  background: var(--color-charcoal);
+  color: var(--text-light);
+}
+
+.section--cream {
+  background: var(--color-cream);
+  color: var(--text-dark);
+}
+
+.section--cream-warm {
+  background: var(--color-cream-warm);
+  color: var(--text-dark);
+}
+
+/* Grids */
+.grid {
+  display: grid;
+  gap: var(--space-lg);
+}
+
+.grid--2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.grid--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.grid--4 { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+
+.grid--gap-sm { gap: var(--space-md); }
+.grid--gap-lg { gap: var(--space-xl); }
+
+/* Split — image + content side by side */
+.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: 80vh;
+}
+
+.split__media,
+.split__content {
+  min-height: 60vh;
+}
+
+.split__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.split__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 1.2s var(--ease-out);
+}
+
+.split:hover .split__media img { transform: scale(1.04); }
+
+.split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: clamp(40px, 6vw, 96px);
+}
+
+.split--reverse .split__media { order: 2; }
+
+/* Two-panel feature row */
+.feature-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+}
+
+/* Stack utility */
+.stack > * + * { margin-top: var(--space-sm); }
+.stack-md > * + * { margin-top: var(--space-md); }
+.stack-lg > * + * { margin-top: var(--space-lg); }
+
+/* Flow helpers */
+.flex {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+}
+
+.flex--between { justify-content: space-between; }
+.flex--center  { justify-content: center; }
+.flex--wrap    { flex-wrap: wrap; }

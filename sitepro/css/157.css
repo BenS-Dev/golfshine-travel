@@ -1,0 +1,140 @@
+#wb_header { background: transparent none repeat scroll left top; height: 200px; }
+#wb_header { height: 200px; }
+#wb_main { background: transparent none repeat scroll left top; height: 1060px; }
+#wb_main { height: 1060px; }
+#wb_footer { background: transparent none repeat scroll left top; height: 190px; }
+#wb_footer { height: 190px; }
+body { background: transparent url("../gallery_gen/e79a8d9a646d5ef2408f5ab3fb3bfdaf.jpg") repeat scroll center top; }
+.wb_sbg { background: transparent none repeat-x scroll center bottom; }
+body, .wb_sbg { min-width: 992px; min-height: 2118px; }
+.root { width: 992px; height: 2118px; overflow: visible; }
+#wb_element_instance3015 { left: 0px; top: 30px; min-width: 990px; width: 990px; min-height: 80px; height: 80px; display: block; z-index: 1982; }
+#wb_element_instance3015 ul { background: #ffffff none repeat scroll left top; border: 0px dotted #000000; }
+#wb_element_instance3015, #wb_element_instance3015 ul { text-align: center; }
+#wb_element_instance3015 ul ul { background: #ffffff none repeat scroll left top; }
+#wb_element_instance3015 li { margin: 15px 15px 15px 15px; }
+#wb_element_instance3015 li a { text-transform: capitalize; border: 5px none #949494; padding: 5px 10px 5px 10px; font: normal bold 30px 'Roboto Slab',sans-serif; text-decoration: none; color: #0b4d1f; line-height: 32px; background: transparent none repeat scroll left top; }
+#wb_element_instance3015 li:hover > a, #wb_element_instance3015 li:focus > a { border: 1px solid #757575; font: normal normal 30px 'Roboto Slab',sans-serif; text-decoration: none; color: #069c18; line-height: 32px; background: #a3a1a3 none no-repeat scroll left top; }
+#wb_element_instance3015 li.active > a { border: 5px none #757575; font: normal normal 30px 'Roboto Slab',sans-serif; text-decoration: none; color: #069c18; line-height: 32px; background: #a3a3a3 none no-repeat scroll center top; }
+#wb_element_instance3016 { left: 10px; top: 10px; min-width: 150px; width: 150px; min-height: 110px; height: 110px; display: block; z-index: 1983; overflow: hidden; }
+#wb_element_instance3016 img { width: 130px; height: 130px; display: block; position: relative; left: -10px; top: -20px; max-width: inherit; }
+#wb_element_instance3017 { left: 10px; top: 10px; min-width: 990px; width: 990px; min-height: 110px; height: 110px; display: block; z-index: 1455; }
+#wb_element_instance3017 > div { width: 990px; height: 110px; background: #ffffff; border: 5px none #C0C0C0; opacity: 1; border-radius: 15px 15px 15px 15px; -moz-border-radius: 15px 15px 15px 15px; -webkit-border-radius: 15px 15px 15px 15px; }
+#wb_element_instance3018 { left: 870px; top: 530px; min-width: 112px; width: 112px; min-height: 29px; height: 29px; display: block; z-index: 11987; }
+#wb_element_instance3018 img { width: 112px; height: 29px; display: block; position: static; left: 0px; top: 0px; }
+#wb_element_instance3019 { left: 140px; top: 110px; min-width: 710px; width: 710px; min-height: 280px; height: 280px; display: block; z-index: 427; }
+#wb_element_instance3019 > div { width: 710px; height: 280px; background: #ffffff; border: 5px none #C0C0C0; opacity: 0.72; border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px; }
+#wb_element_instance3020 { left: 150px; top: 150px; min-width: 690px; width: 690px; min-height: 200px; height: 200px; display: block; z-index: 445; }
+#wb_element_instance3020 form .form-field { width: 594px; }
+#wb_element_instance3020 form .form-area-field { height: 47px; }
+#wb_element_instance3020 form td { text-align: right; }
+#wb_element_instance3020 form tr.area-row > th { height: 1%; }
+#wb_element_instance3020 form tr.area-row > td { height: 1%; }
+#wb_element_instance3020 form tr.form-footer > td { height: 20px; }
+#wb_element_instance3021 { left: 0px; top: 410px; min-width: 990px; width: 990px; min-height: 100px; height: 100px; display: block; z-index: 1150; }
+#wb_element_instance3021 > div { width: 990px; height: 100px; background: #104a12; border: 5px none #C0C0C0; opacity: 0.95; border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px; }
+#wb_element_instance3022 { left: 20px; top: 430px; min-width: 170px; width: 170px; min-height: 60px; height: 60px; display: block; z-index: 1151; }
+#wb_element_instance3022 img { width: 170px; height: 60px; display: block; position: static; left: 0px; top: 0px; }
+#wb_element_instance3023 { left: 380px; top: 0px; min-width: 300px; width: 300px; min-height: 110px; height: 110px; display: block; z-index: 1188; }
+#wb_element_instance3023 img { width: 300px; height: 110px; display: block; position: static; left: 0px; top: 0px; }
+#wb_element_instance3024 { left: 200px; top: 420px; min-width: 690px; width: 690px; min-height: 69px; height: 69px; display: block; z-index: 1154; }
+#wb_element_instance3025 { left: 50px; top: 510px; min-width: 890px; width: 890px; min-height: 523px; height: 523px; display: block; z-index: 881; }
+#wb_element_instance3026 { left: 10px; top: 470px; min-width: 970px; width: 970px; min-height: 590px; height: 590px; display: block; z-index: 879; }
+#wb_element_instance3026 > div { width: 970px; height: 590px; background: #ffffff; border: 5px none #C0C0C0; opacity: 0.72; border-radius: 10px 10px 10px 10px; -moz-border-radius: 10px 10px 10px 10px; -webkit-border-radius: 10px 10px 10px 10px; }
+#wb_element_instance3027 { left: 0px; top: 0px; min-width: 990px; width: 990px; min-height: 450px; height: 450px; display: block; z-index: 882; }
+#wb_element_instance3027 { background: transparent; }
+#wb_element_instance3028 { left: 0px; top: 1080px; display: block; z-index: 9000; }
+#wb_element_instance3029 { left: 0px; top: 579px; display: block; z-index: 9999; }
+
+@media (min-width: 768px) {
+	#wb_header { height: 200px; }
+	#wb_main { height: 1060px; }
+	#wb_footer { height: 190px; }
+	body, .wb_sbg { min-width: 992px; min-height: 1450px; }
+	.root { width: 992px; height: 1450px; overflow: visible; }
+	#wb_element_instance3015 { left: 0px; top: 30px; min-width: 990px; width: 990px; min-height: 80px; height: 80px; display: block; }
+	#wb_element_instance3016 { left: 10px; top: 10px; min-width: 150px; width: 150px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3016 img { width: 170px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3017 { left: 10px; top: 10px; min-width: 990px; width: 990px; min-height: 110px; height: 110px; display: block; }
+	#wb_element_instance3017 > div { width: 990px; height: 110px; }
+	#wb_element_instance3018 { left: 870px; top: 530px; min-width: 112px; width: 112px; min-height: 29px; height: 29px; display: block; }
+	#wb_element_instance3018 img { width: 112px; height: 29px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3019 { left: 140px; top: 110px; min-width: 710px; width: 710px; min-height: 280px; height: 280px; display: block; }
+	#wb_element_instance3019 > div { width: 710px; height: 280px; }
+	#wb_element_instance3020 { left: 150px; top: 150px; min-width: 690px; width: 690px; min-height: 200px; height: 200px; display: block; }
+	#wb_element_instance3020 form .form-field { width: 594px; }
+	#wb_element_instance3020 form .form-area-field { height: 47px; }
+	#wb_element_instance3021 { left: 0px; top: 410px; min-width: 990px; width: 990px; min-height: 100px; height: 100px; display: block; }
+	#wb_element_instance3021 > div { width: 990px; height: 100px; }
+	#wb_element_instance3022 { left: 20px; top: 430px; min-width: 170px; width: 170px; min-height: 60px; height: 60px; display: block; }
+	#wb_element_instance3022 img { width: 170px; height: 60px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3023 { left: 380px; top: 0px; min-width: 300px; width: 300px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3023 img { width: 320px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3024 { left: 200px; top: 420px; min-width: 690px; width: 690px; min-height: 69px; height: 69px; display: block; }
+	#wb_element_instance3025 { left: 50px; top: 510px; min-width: 890px; width: 890px; min-height: 523px; height: 523px; display: block; }
+	#wb_element_instance3026 { left: 10px; top: 470px; min-width: 970px; width: 970px; min-height: 590px; height: 590px; display: block; }
+	#wb_element_instance3026 > div { width: 970px; height: 590px; }
+	#wb_element_instance3027 { left: 0px; top: 0px; min-width: 990px; width: 990px; min-height: 450px; height: 450px; display: block; }
+}
+
+@media (min-width: 992px) {
+	#wb_header { height: 200px; }
+	#wb_main { height: 1060px; }
+	#wb_footer { height: 190px; }
+	body, .wb_sbg { min-width: 992px; min-height: 1450px; }
+	.root { width: 992px; height: 1450px; overflow: visible; }
+	#wb_element_instance3015 { left: 0px; top: 30px; min-width: 990px; width: 990px; min-height: 80px; height: 80px; display: block; }
+	#wb_element_instance3016 { left: 10px; top: 10px; min-width: 150px; width: 150px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3016 img { width: 170px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3017 { left: 10px; top: 10px; min-width: 990px; width: 990px; min-height: 110px; height: 110px; display: block; }
+	#wb_element_instance3017 > div { width: 990px; height: 110px; }
+	#wb_element_instance3018 { left: 870px; top: 530px; min-width: 112px; width: 112px; min-height: 29px; height: 29px; display: block; }
+	#wb_element_instance3018 img { width: 112px; height: 29px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3019 { left: 140px; top: 110px; min-width: 710px; width: 710px; min-height: 280px; height: 280px; display: block; }
+	#wb_element_instance3019 > div { width: 710px; height: 280px; }
+	#wb_element_instance3020 { left: 150px; top: 150px; min-width: 690px; width: 690px; min-height: 200px; height: 200px; display: block; }
+	#wb_element_instance3020 form .form-field { width: 594px; }
+	#wb_element_instance3020 form .form-area-field { height: 47px; }
+	#wb_element_instance3021 { left: 0px; top: 410px; min-width: 990px; width: 990px; min-height: 100px; height: 100px; display: block; }
+	#wb_element_instance3021 > div { width: 990px; height: 100px; }
+	#wb_element_instance3022 { left: 20px; top: 430px; min-width: 170px; width: 170px; min-height: 60px; height: 60px; display: block; }
+	#wb_element_instance3022 img { width: 170px; height: 60px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3023 { left: 380px; top: 0px; min-width: 300px; width: 300px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3023 img { width: 320px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3024 { left: 200px; top: 420px; min-width: 690px; width: 690px; min-height: 69px; height: 69px; display: block; }
+	#wb_element_instance3025 { left: 50px; top: 510px; min-width: 890px; width: 890px; min-height: 523px; height: 523px; display: block; }
+	#wb_element_instance3026 { left: 10px; top: 470px; min-width: 970px; width: 970px; min-height: 590px; height: 590px; display: block; }
+	#wb_element_instance3026 > div { width: 970px; height: 590px; }
+	#wb_element_instance3027 { left: 0px; top: 0px; min-width: 990px; width: 990px; min-height: 450px; height: 450px; display: block; }
+}
+
+@media (min-width: 1200px) {
+	#wb_header { height: 200px; }
+	#wb_main { height: 1060px; }
+	#wb_footer { height: 190px; }
+	body, .wb_sbg { min-width: 992px; min-height: 1450px; }
+	.root { width: 992px; height: 1450px; overflow: visible; }
+	#wb_element_instance3015 { left: 0px; top: 30px; min-width: 990px; width: 990px; min-height: 80px; height: 80px; display: block; }
+	#wb_element_instance3016 { left: 10px; top: 10px; min-width: 150px; width: 150px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3016 img { width: 170px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3017 { left: 10px; top: 10px; min-width: 990px; width: 990px; min-height: 110px; height: 110px; display: block; }
+	#wb_element_instance3017 > div { width: 990px; height: 110px; }
+	#wb_element_instance3018 { left: 870px; top: 530px; min-width: 112px; width: 112px; min-height: 29px; height: 29px; display: block; }
+	#wb_element_instance3018 img { width: 112px; height: 29px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3019 { left: 140px; top: 110px; min-width: 710px; width: 710px; min-height: 280px; height: 280px; display: block; }
+	#wb_element_instance3019 > div { width: 710px; height: 280px; }
+	#wb_element_instance3020 { left: 150px; top: 150px; min-width: 690px; width: 690px; min-height: 200px; height: 200px; display: block; }
+	#wb_element_instance3020 form .form-field { width: 594px; }
+	#wb_element_instance3020 form .form-area-field { height: 47px; }
+	#wb_element_instance3021 { left: 0px; top: 410px; min-width: 990px; width: 990px; min-height: 100px; height: 100px; display: block; }
+	#wb_element_instance3021 > div { width: 990px; height: 100px; }
+	#wb_element_instance3022 { left: 20px; top: 430px; min-width: 170px; width: 170px; min-height: 60px; height: 60px; display: block; }
+	#wb_element_instance3022 img { width: 170px; height: 60px; display: block; position: static; left: 0px; top: 0px; }
+	#wb_element_instance3023 { left: 380px; top: 0px; min-width: 300px; width: 300px; min-height: 110px; height: 110px; display: block; overflow: hidden; }
+	#wb_element_instance3023 img { width: 320px; height: 170px; display: block; position: relative; left: -10px; top: -30px; max-width: inherit; }
+	#wb_element_instance3024 { left: 200px; top: 420px; min-width: 690px; width: 690px; min-height: 69px; height: 69px; display: block; }
+	#wb_element_instance3025 { left: 50px; top: 510px; min-width: 890px; width: 890px; min-height: 523px; height: 523px; display: block; }
+	#wb_element_instance3026 { left: 10px; top: 470px; min-width: 970px; width: 970px; min-height: 590px; height: 590px; display: block; }
+	#wb_element_instance3026 > div { width: 970px; height: 590px; }
+	#wb_element_instance3027 { left: 0px; top: 0px; min-width: 990px; width: 990px; min-height: 450px; height: 450px; display: block; }
+}

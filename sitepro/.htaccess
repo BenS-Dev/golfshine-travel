@@ -1,0 +1,16 @@
+RewriteEngine On
+RewriteBase /
+
+
+#### PERSISTENT CONTENT ####
+
+
+
+#### PERSISTENT CONTENT END ####
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^.*$ index.php [L,QSA]
+
+
+#### PERSISTENT CONTENT ####
+

@@ -1,0 +1,65 @@
+country_slug,country_name,region,course_name,course_slug,hotel,legacy_php,legacy_bodies,hero_hash,hero_ext,status
+scotland,Scotland,St. Andrews,St. Andrews Links — Old Course,st-andrews-links-old-course,Old Course Hotel,91,4,1d9f7a6320d08955008726aaf209ef53,jpg,matched
+scotland,Scotland,St. Andrews,Fairmont St. Andrews,fairmont-st-andrews,Fairmont St. Andrews Resort & Spa,,0,,,no-detail
+scotland,Scotland,Scottish Highland,Cabot Highlands,cabot-highlands,Kingsmills Hotel,92,5,01f3b07745047f282df36a1e88db6718,jpg,matched
+scotland,Scotland,Scottish Highland,Royal Dornich Championship Course,royal-dornich-championship-course,Dornoch Castle Hotel,94,3,9481f06896653a5b333480633b376af6,jpg,matched
+scotland,Scotland,Aberdeen,Royal Aberdeen Golf Club,royal-aberdeen-golf-club,Malmaison Aberdeen,100,6,9319f01578e8877a8c30742801cbcf25,jpg,matched
+scotland,Scotland,Aberdeen,Trump International,trump-international,Malmaison Aberdeen,98,5,2f17e677105c6c3c84f9e9061e2fa7a4,jpg,matched
+scotland,Scotland,Edinburgh,The Bruntsflield Links,the-bruntsflield-links,Malmoison Edinburgh,93,3,f8330ac2fac9d59d3ce5430a4781efa2,jpg,matched
+scotland,Scotland,East Lothian,Gullane Golf Club,gullane-golf-club,Marine Hotel & Spa,95,4,a9b66180452be6c9aa211c7c722ec0f7,jpg,matched
+ireland,Ireland,South West Ireland,Killarney G.C. Killen,killarney-g-c-killen,Killarney Plaza Hotel,86,3,6c1028e6c55c8be7ed1e762f261a48c0,jpg,matched
+ireland,Ireland,North Ireland,Ballyliffin Golf Club,ballyliffin-golf-club,Ballyliffin Lodge & Spa,85,3,e047583c4d6fe30f31531a8f568de363,jpg,matched
+ireland,Ireland,North Ireland,Royal Portrush Golf Club — Dunlance Links,royal-portrush-golf-club-dunlance-links,Portrush Atlantic Hotel,,2,,,no-detail
+ireland,Ireland,South West Ireland,Tralee Golf Club,tralee-golf-club,Adare Manor Hotel & Golf Resort,,2,,,no-detail
+ireland,Ireland,East Ireland,Portmarnock Golf Club (Old),portmarnock-golf-club-old,Portmarnock Hotel,,2,,,no-detail
+ireland,Ireland,East Ireland,Carton House Golf Club,carton-house-golf-club,Carton House Hotel,89,4,14afc61ed47a61aa8995a0da037a1d55,jpg,matched
+wales,Wales,Cardiff,Golf at the Vale Resort,golf-at-the-vale-resort,The Vale Resort,155,7,85f721b407707945a3a2178c35008158,jpg,matched
+wales,Wales,Newport,Celtic Manor Golf Club,celtic-manor-golf-club,Celtic Manor Resort,154,9,f4eea240ee1206ae9bc1a064ca0bd4f8,jpg,matched
+wales,Wales,Swansea,Royal Porthcawl Golf Club,royal-porthcawl-golf-club,Mercure Swansea Hotel,,0,,,no-detail
+spain,Spain,Marbella,Los Naranjos Golf Club,los-naranjos-golf-club,Gran Hotel Guadalpin Banus,106,7,cf339eb1ed988a606370c765a0336394,jpg,matched
+spain,Spain,Marbella,Los Monteros Golf,los-monteros-golf,Los Monteros Spa & Golf Resort,105,5,5a7fc58494243bb2a4fc79715dc39f26,jpg,matched
+spain,Spain,Madrid,Real Club La Herreria,real-club-la-herreria,Exe Victoria Palace,104,3,0743d1011cff7b1a13b3638b4925e729,jpg,matched
+spain,Spain,Marbella,Rio Real Golf & Hotel,rio-real-golf-and-hotel,Rio Real Hotel,107,6,0743d1011cff7b1a13b3638b4925e729,jpg,matched
+spain,Spain,Barcelona,Sitges Terramar Golf Club,sitges-terramar-golf-club,ME Sitges Terramar,,0,,,no-detail
+spain,Spain,Barcelona,Llavaneras Golf Club,llavaneras-golf-club,Hotel Atenea Port,,0,,,no-detail
+spain,Spain,Valencia,Campo de Golf El Saler,campo-de-golf-el-saler,Parador de El Saler,,0,,,no-detail
+portugal,Portugal,Algarve,Vale do Lobo Golf Club,vale-do-lobo-golf-club,Vale do Lobo Resort,111,5,6d130d2650071ad98e49d8c724b0d45c,jpg,matched
+portugal,Portugal,Troia,Troia Golf,troia-golf,Troia Resort,112,4,05da8cb191173885217816d0beab7748,png,matched
+portugal,Portugal,Cascais,Oitavos Dunes Golf Course,oitavos-dunes-golf-course,The Oitavos,,0,,,no-detail
+portugal,Portugal,Obidos,Praia D'El Rey Golf & Beach Resort,praia-d-el-rey-golf-and-beach-resort,Praia D'El Rey Golf & Beach Resort,,0,,,no-detail
+portugal,Portugal,Lagos,Palmares Ocean Living & Golf,palmares-ocean-living-and-golf,Palmares Beach House Hotel,115,3,74d5c434285297df8716ae65d4a6e02f,jpg,matched
+portugal,Portugal,Oporto,Oporto Golf Club,oporto-golf-club,Exe Praia Golfe,116,5,b648e777ae5d3e1732d1d1d975afd339,jpg,matched
+france,France,Tourrettes,Le Golf Terre Blanches,le-golf-terre-blanches,Terre Blanche Hotel Spa Resort,153,7,1b41849f4e6a3aa5eb1f83b88ee6f6ca,jpg,matched
+france,France,Evian-les-Bains,Evian Golf Club,evian-golf-club,Evian Resort,,0,,,no-detail
+france,France,Bordeaux,Golf du Medoc,golf-du-medoc,Hôtel MGallery Medoc,144,6,1b41849f4e6a3aa5eb1f83b88ee6f6ca,jpg,matched
+italy,Italy,Sardinia,Pevero Golf Club,pevero-golf-club,CPH | Pevero Hotel,,0,,,no-detail
+italy,Italy,Milan,Garrdagolf Country Club,garrdagolf-country-club,Hotel Porta del Sole,,0,,,no-detail
+italy,Italy,Lombardy,Circolo Golf Villa d'Este,circolo-golf-villa-d-este,Hotel Villa d'Este,,0,,,no-detail
+italy,Italy,Roma,Circolo del Golf di Roma,circolo-del-golf-di-roma,Palazzo Manfredi,,0,,,no-detail
+italy,Italy,Turin,Royal Park Roveri,royal-park-roveri,Principi di Piemonte,123,7,15c4408d9f33d7559bcb3fff9d5a2fd9,jpg,matched
+italy,Italy,Tuscany,Argentario Golf & Wellness Resort,argentario-golf-and-wellness-resort,Argentario Golf & Wellness Resort,,0,,,no-detail
+netherlands,Netherlands,Amsterdam,The International,the-international,Mercure Hotel Amsterdam West,,0,,,no-detail
+netherlands,Netherlands,Wassenaar,Koninklijke Haagsche Golf & Country Club,koninklijke-haagsche-golf-and-country-club,Carlton Beach,,0,,,no-detail
+netherlands,Netherlands,Beetsterzwaag,Golf & Country Club Lauswolt,golf-and-country-club-lauswolt,Hotel Lauswolt,,0,,,no-detail
+germany,Germany,Berlin,Golf and Country Club Berlin-Wannsee e.V.,golf-and-country-club-berlin-wannsee-e-v,Hotel Steglitz International,,0,,,no-detail
+germany,Germany,München,Golfclub München Eichenried,golfclub-munchen-eichenried,Mövenpick Hotel at Munich Airport,,0,,,no-detail
+germany,Germany,Grassau,Das Achental Golf,das-achental-golf,Das Achental,166,6,1a14231d0207d263bcd2763a89a7e15c,jpg,matched
+switzerland,Switzerland,Genève,Golf Club de Geneve,golf-club-de-geneve,Hôtel Century,173,6,877a9706a9f38288011c172223ec25da,jpg,matched
+switzerland,Switzerland,Thun,Golf Club Thunersee,golf-club-thunersee,Hotel Eden Spiez,172,6,69538b63f229ce4f12e8eec79fd0354b,jpg,matched
+switzerland,Switzerland,Crans-Montana,Crans-sur-Sierre Golf Club,crans-sur-sierre-golf-club,Grand Hôtel du Golf et Palace,171,5,acd4ec8acb4117567ae949422af4f57f,jpg,matched
+greece,Greece,Costa Navarino,The Bay Course,the-bay-course,W Costa Navarino,133,9,7cf60fdcee40a77e9ab0c45edecb8660,jpg,matched
+greece,Greece,Costa Navarino,The Dunes Course,the-dunes-course,The Westin Resort,131,8,f4568fb8fcd1ecc6928f240b3e53bf69,jpg,matched
+greece,Greece,Athens,Glufada Golf Club of Athens,glufada-golf-club-of-athens,Glyfada Riviera Hotel,136,8,3e1b6ec226343970d3ebc982304eb868,jpg,matched
+greece,Greece,Corfu,Corfu Golf Club,corfu-golf-club,Atlantica Grand Mediterraneo Resort,145,9,8d4bcba5a45865e465988fe8ff5da8ed,jpg,matched
+sweden,Sweden,Halmstad,Halmstad Golfklubb and Hotel Resort,halmstad-golfklubb-and-hotel-resort,Halmstad Golfklubb and Hotel Resort,,0,,,no-detail
+sweden,Sweden,Malmö,PGA of Sweden National,pga-of-sweden-national,PGA of Sweden National,160,5,74ad27b65a184ef393d4f10b043b0794,jpg,matched
+sweden,Sweden,Stockholm,Bro Hof Slott Golf Club,bro-hof-slott-golf-club,Bro Hof Slott Golf Club,161,5,be17351f512472cb112782cf06b4892c,jpg,matched
+denmark,Denmark,Nimtofte,Lübker Golf Resort,lubker-golf-resort,Lübker Golf Resort,158,6,253a7744d97b26bfb04542ef1d2e5bc4,jpg,matched
+denmark,Denmark,Hørsholm,Kokkedal Golf Club,kokkedal-golf-club,Kokkedal Golf Club,159,6,189cafb8d82857bbe2e869761273a2b1,jpg,matched
+denmark,Denmark,Himmerland,Himmerland Golf & Spa Resort,himmerland-golf-and-spa-resort,Himmerland Golf & Spa Resort,162,5,be17351f512472cb112782cf06b4892c,jpg,matched
+norway,Norway,Stavanger,Stavanger Golfklubb,stavanger-golfklubb,Stavanger Forum Hotel,126,6,b7a3cb083b24b41bcdf988cd0bed3303,jpg,matched
+norway,Norway,Drøbak,Drøbak Golfklubb,dr-bak-golfklubb,Reenskaug Hotel,130,8,9c90ae5025602dbd928889b9e0e5aecb,jpg,matched
+norway,Norway,Oslo,Losby Golfklubb,losby-golfklubb,Losby Gods,125,6,65c25ad7d86d7e7616bcdfc0abe35038,jpg,matched
+norway,Norway,Bergen,Bergen Golfklubb,bergen-golfklubb,Thon Hotel,128,8,6f3b385d03118cb26721fd20624eefed,jpg,matched
+norway,Norway,Trondheim,Trondheim Golfklubb,trondheim-golfklubb,Scandic Nidelven,127,9,b7a3cb083b24b41bcdf988cd0bed3303,jpg,matched
+norway,Norway,Tønsberg,Vestfold Golf Club,vestfold-golf-club,Oslofjord Hotel,129,8,b7a3cb083b24b41bcdf988cd0bed3303,jpg,matched
