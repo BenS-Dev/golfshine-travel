@@ -638,3 +638,45 @@
     font-size: 0.65rem;
   }
 }
+
+/* Contact form status message (success / error) */
+.form-status {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin: 20px 0 0;
+  padding: 18px 20px;
+  border-radius: 6px;
+  border-left-width: 5px;
+  border-left-style: solid;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+.form-status__icon {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+}
+.form-status--ok {
+  background: rgba(6, 47, 45, 0.07);
+  border-left-color: var(--color-deep-green, #062f2d);
+  color: var(--color-deep-green, #062f2d);
+}
+.form-status--ok .form-status__icon {
+  background: var(--color-deep-green, #062f2d);
+}
+.form-status--error {
+  background: rgba(160, 40, 30, 0.07);
+  border-left-color: #a0281e;
+  color: #a0281e;
+}
+.form-status--error .form-status__icon {
+  background: #a0281e;
+}

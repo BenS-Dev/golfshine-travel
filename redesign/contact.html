@@ -3,14 +3,14 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Plan Your Trip — Contact Wingolf Travel</title>
+  <title>Plan Your Trip — Contact Gulfshine Travel</title>
   <meta name="description" content="Send a short inquiry and we'll come back with a draft itinerary." />
-  <link rel="canonical" href="https://www.wingolftravel.com/contact.html" />
+  <link rel="canonical" href="https://gulfshineservices.us/contact.html" />
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Plan Your Trip — Wingolf Travel" />
+  <meta property="og:title" content="Plan Your Trip — Gulfshine Travel" />
   <meta property="og:description" content="Send a short inquiry and we'll come back with a draft itinerary." />
-  <meta property="og:url" content="https://www.wingolftravel.com/contact.html" />
-  <meta property="og:image" content="https://www.wingolftravel.com/assets/images/hero/hero-contact.png" />
+  <meta property="og:url" content="https://gulfshineservices.us/contact.html" />
+  <meta property="og:image" content="https://gulfshineservices.us/assets/images/hero/hero-contact.png" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,10 +27,10 @@
   {
     "@context": "https://schema.org",
     "@type": "TravelAgency",
-    "name": "Wingolf Travel",
+    "name": "Gulfshine Travel",
     "legalName": "Gulfshine Services Inc.",
-    "url": "https://www.wingolftravel.com/",
-    "logo": "https://www.wingolftravel.com/assets/images/logo/gulfshine-logo.png",
+    "url": "https://gulfshineservices.us/",
+    "logo": "https://gulfshineservices.us/assets/images/logo/gulfshine-logo.png",
     "email": "contact@gulfshineservices.us",
     "telephone": "(561)985-3886",
     "address": {
@@ -53,7 +53,7 @@
       <img class="brand__mark" src="assets/images/logo/gulfshine-logo.png" alt="" />
       <span class="brand__text">
         <span class="brand__name">Gulfshine</span>
-        <span class="brand__tag">Travel · Wingolf</span>
+        <span class="brand__tag">Travel</span>
       </span>
     </a>
     <nav class="nav" aria-label="Primary">
@@ -92,7 +92,11 @@
       <div class="contact-grid">
 
         <!-- Inquiry form -->
-        <form class="form" action="#" method="post" novalidate>
+        <form class="form" id="inquiry-form" action="send.php" method="post" novalidate>
+          <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
+          <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
+            <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
+          </div>
           <div class="form-row">
             <div class="field">
               <label for="name">Name</label>
@@ -153,6 +157,8 @@
           <div>
             <button class="btn btn--primary btn--lg" type="submit">Plan Your Trip</button>
           </div>
+
+          <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
         </form>
 
         <!-- Contact meta -->
@@ -207,7 +213,6 @@
       <div>
         <h4>Company</h4>
         <ul>
-          <li><a href="about.html">About Gulfshine</a></li>
           <li><a href="contact.html">Contact</a></li>
           <li><a href="contact.html">Plan a Trip</a></li>
         </ul>

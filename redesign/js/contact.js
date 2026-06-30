@@ -31,3 +31,71 @@
     }
   }
 })();
+
+/**
+ * Contact form submission → send.php (Resend).
+ * Progressive enhancement: intercept the submit, POST via fetch, show an
+ * inline status message. With JS off, the form posts normally and send.php
+ * redirects back to contact.html?sent=1 / ?sent=0 (handled below).
+ */
+(function () {
+  const form = document.getElementById("inquiry-form");
+  const status = document.getElementById("form-status");
+  if (!form || !status) return;
+
+  function show(ok, message) {
+    status.hidden = false;
+    status.innerHTML =
+      '<span class="form-status__icon" aria-hidden="true">' +
+      (ok ? "✓" : "✕") +
+      "</span><span class=\"form-status__text\"><strong>" +
+      (ok ? "Inquiry sent" : "Not sent") +
+      "</strong> — " +
+      message +
+      "</span>";
+    status.classList.toggle("form-status--ok", ok);
+    status.classList.toggle("form-status--error", !ok);
+    status.scrollIntoView({ behavior: "smooth", block: "center" });
+  }
+
+  // No-JS fallback redirect result (?sent=1 / ?sent=0).
+  const sent = new URLSearchParams(window.location.search).get("sent");
+  if (sent === "1") {
+    show(true, "Thank you — your inquiry is on its way. We answer every message personally.");
+  } else if (sent === "0") {
+    show(false, "Sorry — something went wrong. Please email contact@gulfshineservices.us.");
+  }
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const button = form.querySelector('button[type="submit"]');
+    const original = button ? button.textContent : "";
+    if (button) {
+      button.disabled = true;
+      button.textContent = "Sending…";
+    }
+    try {
+      const res = await fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "X-Requested-With": "fetch", Accept: "application/json" },
+      });
+      const data = await res.json().catch(() => ({ ok: res.ok, message: "" }));
+      show(
+        data.ok,
+        data.message ||
+          (data.ok
+            ? "Thank you — your inquiry is on its way."
+            : "Something went wrong. Please email contact@gulfshineservices.us.")
+      );
+      if (data.ok) form.reset();
+    } catch (err) {
+      show(false, "Network error — please email contact@gulfshineservices.us.");
+    } finally {
+      if (button) {
+        button.disabled = false;
+        button.textContent = original;
+      }
+    }
+  });
+})();
