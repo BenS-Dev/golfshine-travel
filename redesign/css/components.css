@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Components — header, footer, buttons, cards, forms
+   Components - header, footer, buttons, cards, forms
    ========================================================================== */
 
 /* ----- Header / Nav ----- */
@@ -275,11 +275,11 @@
   letter-spacing: 0.02em;
 }
 
-/* Card variant — taller for hero rows */
+/* Card variant - taller for hero rows */
 .card--tall .card__media { aspect-ratio: 3 / 4.4; }
 .card--wide .card__media { aspect-ratio: 4 / 3; }
 
-/* Journey card — bottom caption layout */
+/* Journey card - bottom caption layout */
 .journey-card {
   position: relative;
   background: var(--color-white);
@@ -362,7 +362,7 @@
 
 .journey-card__duration { color: var(--text-dark-muted); }
 
-/* Why us — feature blocks */
+/* Why us - feature blocks */
 .feature {
   display: flex;
   flex-direction: column;

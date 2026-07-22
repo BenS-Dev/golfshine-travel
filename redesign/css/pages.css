@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Pages — hero, feature panels, CTA, page-specific blocks
+   Pages - hero, feature panels, CTA, page-specific blocks
    ========================================================================== */
 
 /* ----- Hero (cinematic) ----- */
@@ -102,7 +102,7 @@
   display: block;
 }
 
-/* Hero — shorter version for inner pages */
+/* Hero - shorter version for inner pages */
 .hero--inner { min-height: 72vh; }
 
 /* ----- 404 page ----- */
@@ -438,7 +438,7 @@
 
 .editorial--reverse .editorial__media { order: 2; }
 
-/* ----- About — about page specific ----- */
+/* ----- About - about page specific ----- */
 .values-list {
   display: grid;
   gap: var(--space-md);

@@ -1,4 +1,4 @@
-# Sitemap — Legacy → Redesign
+# Sitemap - Legacy → Redesign
 
 Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify nothing was missed and to extend the site later.
 
@@ -14,7 +14,7 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `/contact.html` | `sitepro/3.php` (Contact) + `43.php` (Request Pricing) | Inquiry form with `?inquiry=` prefill |
 | `/404.html` | n/a | Design-system-matched 404 page (noindex) |
 
-## Argentina destinations — `/argentina/` (13 files)
+## Argentina destinations - `/argentina/` (13 files)
 
 | File | Legacy source |
 | --- | --- |
@@ -32,7 +32,7 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `buenos-aires-puerto-madryn-ushuaia-calafate-bariloche.html` | `sitepro/26.php` (16N combo) |
 | `buenos-aires-iguazu-calafate-ushuaia-australis.html` | `sitepro/27.php` (16N + cruise) |
 
-## Argentina Golf — `/argentina-golf/` (5 files)
+## Argentina Golf - `/argentina-golf/` (5 files)
 
 | File | Legacy source |
 | --- | --- |
@@ -42,9 +42,9 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `mendoza.html` | `sitepro/29.php` (with real prices u$s 251 single / 178 double) |
 | `ushuaia.html` | `sitepro/32.php` |
 
-## Golf regions + Italy itineraries — `/golf/` (17 files)
+## Golf regions + Italy itineraries - `/golf/` (17 files)
 
-**Regions** (LOCATION – COURSE / HOTEL format from each legacy hub):
+**Regions** (LOCATION - COURSE / HOTEL format from each legacy hub):
 | File | Source |
 | --- | --- |
 | `scotland.html` | `sitepro/101.php` |
@@ -69,7 +69,7 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `italy-tuscany-umbria.html` | `golf 2/htm/ITA-0005.htm` (11 days) |
 | `italy-sicily.html` | `golf 2/htm/ITA-0006.htm` (8 days) |
 
-## Caribbean — `/caribbean/` (5 files)
+## Caribbean - `/caribbean/` (5 files)
 
 | File | Source |
 | --- | --- |
@@ -79,7 +79,7 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `bahamas.html` | `sitepro/76.php` (Reef Course / Grand Lucayan) |
 | `los-cabos.html` | `sitepro/82.php` (Diamante) |
 
-## USA — `/usa/` (15 files)
+## USA - `/usa/` (15 files)
 
 | File | Source |
 | --- | --- |
@@ -99,7 +99,7 @@ Map of every legacy `sitepro/N.php` to its redesigned URL. Use this to verify no
 | `tucson-ritz-carlton.html` | `sitepro/72.php` |
 | `ocean-city-eagles-landing.html` | `sitepro/73.php` |
 
-## Contact info — single source of truth
+## Contact info - single source of truth
 
 Used identically on every page footer and detail-page CTA strip:
 
@@ -115,10 +115,10 @@ Source: `sitepro/90.php` (St. Andrews footer) and `golf 2/cabezal.php`.
 | --- | --- |
 | `sitepro/about.html` (planned) | No legacy source content. Deleted from build. |
 | `sitepro/news.php`, `blog.php` | Empty placeholder pages on legacy. Not migrated. |
-| `sitepro/5.php`, `13.php`, `19.php`, `23.php` | Tier menu hub pages — image-only navigation. Their function is now served by the time-tier sections on `visit-argentina.html`. |
+| `sitepro/5.php`, `13.php`, `19.php`, `23.php` | Tier menu hub pages - image-only navigation. Their function is now served by the time-tier sections on `visit-argentina.html`. |
 | `sitepro/31.php` (Mar del Plata) | Legacy file content is duplicated Ushuaia content (mislabeled). Tile routes to contact prefill. |
 | `sitepro/45.php` (England) | Legacy file content is duplicated Italy content (mislabeled). The England tile on `golf.html` and `destinations.html` routes to contact prefill. |
-| `sitepro/77/85/86/87/88/89.php` (Ireland variants), `sitepro/90/91.php` (St Andrews variants), `sitepro/93/95/96/97/98/100.php` (Scotland variants), `sitepro/104-156.php` (per-course detail pages) | These are sub-pages of the country hubs already represented. The hub-page detail pages list every LOCATION – COURSE / HOTEL pair. |
+| `sitepro/77/85/86/87/88/89.php` (Ireland variants), `sitepro/90/91.php` (St Andrews variants), `sitepro/93/95/96/97/98/100.php` (Scotland variants), `sitepro/104-156.php` (per-course detail pages) | These are sub-pages of the country hubs already represented. The hub-page detail pages list every LOCATION - COURSE / HOTEL pair. |
 | `golf 2/*` PHP iframe wrappers | They wrap external `ltvtech.com` CFM endpoints with no extractable local content. The only real prose lived in `htm/ITA-000{4,5,6}.htm`, all of which are migrated. |
 | `sitepro/81.php` (Nations Cup) | Surfaced as a card on `journeys.html`. No separate detail page. |
 

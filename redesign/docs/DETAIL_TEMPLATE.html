@@ -2,7 +2,7 @@
   CANONICAL DETAIL PAGE TEMPLATE
   ============================================================================
   All destination, itinerary, and per-course detail pages follow this shape.
-  This file is reference only — do NOT link to it from the live site.
+  This file is reference only - do NOT link to it from the live site.
 
   Path convention:
     Detail pages live in subfolders: redesign/<category>/<slug>.html
@@ -22,15 +22,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/png" href="../favicon.png" />
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png" />
 
   <!-- SEO -->
-  <title>{{PAGE_TITLE}} — Gulfshine Travel</title>
+  <title>{{PAGE_TITLE}} | Gulfshine Travel</title>
   <meta name="description" content="{{META_DESCRIPTION}}" />
   <link rel="canonical" href="https://gulfshineservices.us/{{CANONICAL_PATH}}" />
 
   <!-- Open Graph -->
   <meta property="og:type" content="article" />
-  <meta property="og:title" content="{{PAGE_TITLE}} — Gulfshine Travel" />
+  <meta property="og:site_name" content="Gulfshine Travel" />
+  <meta property="og:title" content="{{PAGE_TITLE}} | Gulfshine Travel" />
   <meta property="og:description" content="{{META_DESCRIPTION}}" />
   <meta property="og:url" content="https://gulfshineservices.us/{{CANONICAL_PATH}}" />
   <meta property="og:image" content="https://gulfshineservices.us/{{HERO_IMAGE_PATH}}" />
@@ -138,7 +141,7 @@
     </div>
   </section>
 
-  <!-- Plan This Trip CTA — prefills contact form -->
+  <!-- Plan This Trip CTA - prefills contact form -->
   <section class="cta-banner">
     <div class="cta-banner__media">
       <img src="../{{HERO_IMAGE_PATH}}" alt="" loading="lazy" decoding="async" />
@@ -162,7 +165,7 @@
           <img src="../assets/images/logo/gulfshine-logo.png" alt="" />
           <strong>Gulfshine Travel</strong>
         </div>
-        <p class="footer-blurb">A private travel design house — luxury journeys across Argentina, the Americas, Europe and the world's great golf coastlines.</p>
+        <p class="footer-blurb">A private travel design house crafting luxury journeys across Argentina, the Americas, Europe and the world's great golf coastlines.</p>
       </div>
       <div>
         <h4>Explore</h4>
@@ -178,6 +181,7 @@
         <ul>
           <li><a href="../contact.html">Contact</a></li>
           <li><a href="../contact.html">Plan a Trip</a></li>
+          <li><a href="../privacy.html">Privacy Policy</a></li>
         </ul>
       </div>
       <div>
@@ -211,7 +215,7 @@
   {{TOURIST_TYPE}}          e.g. "Cultural" | "Adventure" | "Golf" | "Wine"
   {{PARENT_CATALOG}}        "visit-argentina.html" | "golf.html" | "destinations.html"
   {{PARENT_NAME}}           "Argentina" | "Golf" | "Destinations"
-  {{LEDE_OR_KICKER}}        Short region/category line — sourced or omitted
+  {{LEDE_OR_KICKER}}        Short region/category line - sourced or omitted
   {{VERBATIM_BODY}}         The legacy page's prose, wrapped in <p>/<h2>/etc.
                             Day-by-day itineraries use <h2> for day headings.
   {{IMAGE_1..3}}            Image paths under assets/images/<category>/

@@ -1,0 +1,15 @@
+# Gulfshine Travel - server rules for public_html
+
+# Never serve the Resend config (holds the API key) or its sample.
+<FilesMatch "^config(\.sample)?\.php$">
+  Require all denied
+</FilesMatch>
+
+# Keep development files out of the public site.
+<FilesMatch "\.(md|py|csv)$">
+  Require all denied
+</FilesMatch>
+RedirectMatch 404 ^/(docs|tools)(/|$)
+
+# Custom 404 page.
+ErrorDocument 404 /404.html

@@ -1,14 +1,14 @@
-# Legacy Sitemap Audit — Wingolf Travel
+# Legacy Sitemap Audit - Wingolf Travel
 
 Every numbered `.php` file in `sitepro/` mapped to its content, title, and coverage status in the redesign. Used to verify nothing was missed.
 
 ## Status legend
 
-- ✓ **Covered** — has a dedicated detail page in the redesign
-- ⤴ **Consolidated** — represented within a hub page (LOCATION – COURSE / HOTEL pair on a region detail page, or anchored section). Click-through still works via the searchable atlas.
-- ▲ **Hub replaced** — was a hub/menu page in legacy; its function is now handled by a redesigned catalog (e.g. `visit-argentina.html`, `golf.html`, `destinations.html`).
-- 🆕 **New** — added in this audit pass (Argentina 6-Night programs, Argentina Golf combos).
-- 🗑 **Junk** — empty legacy page (title `Nueva Página` with no body content) or duplicate/mislabeled — legitimately skipped.
+- ✓ **Covered** - has a dedicated detail page in the redesign
+- ⤴ **Consolidated** - represented within a hub page (LOCATION - COURSE / HOTEL pair on a region detail page, or anchored section). Click-through still works via the searchable atlas.
+- ▲ **Hub replaced** - was a hub/menu page in legacy; its function is now handled by a redesigned catalog (e.g. `visit-argentina.html`, `golf.html`, `destinations.html`).
+- 🆕 **New** - added in this audit pass (Argentina 6-Night programs, Argentina Golf combos).
+- 🗑 **Junk** - empty legacy page (title `Nueva Página` with no body content) or duplicate/mislabeled - legitimately skipped.
 
 ## All 170 legacy pages
 
@@ -21,7 +21,7 @@ Every numbered `.php` file in `sitepro/` mapped to its content, title, and cover
 | 5 | Argentina 3 Nights menu | ▲ | tier section on `visit-argentina.html#tier-3` |
 | 6 | Salta | ✓ | `argentina/salta.html` |
 | 7 | Ushuaia | ✓ | `argentina/ushuaia.html` |
-| 8 | El Calafate (title says "Salta" — mislabeled in source) | ✓ | `argentina/el-calafate.html` |
+| 8 | El Calafate (title says "Salta" - mislabeled in source) | ✓ | `argentina/el-calafate.html` |
 | 9 | Puerto Madryn | ✓ | `argentina/puerto-madryn.html` |
 | 10 | Iguazú | ✓ | `argentina/iguazu.html` |
 | 11 | Bariloche Golf | ✓ | `argentina-golf/bariloche.html` |
@@ -144,9 +144,9 @@ Every numbered `.php` file in `sitepro/` mapped to its content, title, and cover
 | 128 | Bergen | ⤴ | Listed on `golf/norway.html` |
 | 129 | Tønsberg (Vestfold) | ⤴ | Listed on `golf/norway.html` |
 | 130 | Drøbak | ⤴ | Listed on `golf/norway.html` |
-| 131 | Costa Navarino — Bay Course | ⤴ | Listed on `golf/greece.html` |
-| 132 | Costa Navarino — Dunes Course (Westin) | ⤴ | Listed on `golf/greece.html` |
-| 133 | Costa Navarino — Dunes (Romanos) / Hørsholm | ⤴ | Listed on `golf/greece.html` and `golf/denmark.html` |
+| 131 | Costa Navarino - Bay Course | ⤴ | Listed on `golf/greece.html` |
+| 132 | Costa Navarino - Dunes Course (Westin) | ⤴ | Listed on `golf/greece.html` |
+| 133 | Costa Navarino - Dunes (Romanos) / Hørsholm | ⤴ | Listed on `golf/greece.html` and `golf/denmark.html` |
 | 134 | Greece hub | ▲ | `golf/greece.html` |
 | 135 | France hub | ▲ | `golf/france.html` |
 | 136 | Athens (Glyfada) | ⤴ | Listed on `golf/greece.html` |
@@ -158,10 +158,10 @@ Every numbered `.php` file in `sitepro/` mapped to its content, title, and cover
 | 144 | Bordeaux (Golf du Medoc) | ⤴ | Listed on `golf/france.html` |
 | 145 | Corfú (Corfu Golf Club) | ⤴ | Listed on `golf/greece.html` |
 | 146 | Golf hub | ▲ | `golf.html` |
-| 147 | Birmingham (England — content is Italy dup) | 🗑 | English region not represented; would need real source content |
+| 147 | Birmingham (England - content is Italy dup) | 🗑 | English region not represented; would need real source content |
 | 148 | Punta Cana primary | ✓ | `caribbean/punta-cana.html` |
-| 149 | Warwickshire (England — content is Italy dup) | 🗑 | Same as 147 |
-| 151 | Lincolnshire (England — content is Italy dup) | 🗑 | Same as 147 |
+| 149 | Warwickshire (England - content is Italy dup) | 🗑 | Same as 147 |
+| 151 | Lincolnshire (England - content is Italy dup) | 🗑 | Same as 147 |
 | 152 | Evian-les-Bains | ⤴ | Listed on `golf/france.html` |
 | 153 | Tourrettes (Terre Blanche) | ⤴ | Listed on `golf/france.html` |
 | 154 | Newport (Celtic Manor) | ⤴ | Listed on `golf/wales.html` |
@@ -206,24 +206,24 @@ Every numbered `.php` file in `sitepro/` mapped to its content, title, and cover
 
 ## Cross-reference status
 
-**Every legacy page has been classified** — either:
+**Every legacy page has been classified** - either:
 - Built as a dedicated redesign page (✓ or 🆕)
-- Consolidated into a country/region hub page where its content lives as a LOCATION – COURSE / HOTEL block (⤴)
+- Consolidated into a country/region hub page where its content lives as a LOCATION - COURSE / HOTEL block (⤴)
 - Replaced by the modern catalog UX where the legacy hub was just a menu (▲)
 - Legitimately skipped because the legacy file is empty, a test page, or contains duplicated/mislabeled content from another destination (🗑)
 
 The 6 skipped pages are:
-- 1, 3, 5, 13, 25, 44 (Home + Contact + Menu + tier menus + "asdasd" test page — these are navigation, not content)
+- 1, 3, 5, 13, 25, 44 (Home + Contact + Menu + tier menus + "asdasd" test page - these are navigation, not content)
 - 31 Mar del Plata (body is duplicate Ushuaia content)
-- 45 / 147 / 149 / 151 (England + Birmingham + Warwickshire + Lincolnshire — bodies are duplicate Italy content)
+- 45 / 147 / 149 / 151 (England + Birmingham + Warwickshire + Lincolnshire - bodies are duplicate Italy content)
 
-## Maintenance — adding a new destination
+## Maintenance - adding a new destination
 
 For maintainability, the redesign uses **two structural patterns**:
 
 1. **Per-destination detail page** (`category/slug.html`): used when the destination has its own substantive prose (day-by-day itinerary, package details, etc.). Pattern is documented in `docs/DETAIL_TEMPLATE.html`.
 
-2. **Course-on-hub-page section** (LOCATION – COURSE / HOTEL block on a region page): used when a destination is just one of many courses in a country. To add a new course to e.g. `golf/spain.html`, append a new `<article>` block with the location, course, and hotel name. No new file needed.
+2. **Course-on-hub-page section** (LOCATION - COURSE / HOTEL block on a region page): used when a destination is just one of many courses in a country. To add a new course to e.g. `golf/spain.html`, append a new `<article>` block with the location, course, and hotel name. No new file needed.
 
 **Recommendation for future content additions:**
 - Single-destination program with prose → new detail page

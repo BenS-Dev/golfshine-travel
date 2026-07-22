@@ -1,6 +1,6 @@
 <?php
 /**
- * Contact form handler — sends inquiries via the Resend API.
+ * Contact form handler - sends inquiries via the Resend API.
  *
  * The static contact form POSTs here. Works with or without JavaScript:
  *   - AJAX (fetch) requests get a JSON response.
@@ -33,10 +33,10 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     respond(false, 'Method not allowed.', $wantsJson);
 }
 
-// Spam honeypot — bots fill hidden fields; humans never see them.
+// Spam honeypot - bots fill hidden fields; humans never see them.
 if (!empty($_POST['company'] ?? '')) {
     // Pretend success so bots don't learn anything.
-    respond(true, 'Thank you — we will be in touch shortly.', $wantsJson);
+    respond(true, 'Thank you! We will be in touch shortly.', $wantsJson);
 }
 
 $config = @include __DIR__ . '/config.php';
@@ -86,7 +86,7 @@ $payload = [
     'from'     => $config['from'],
     'to'       => [$config['to']],
     'reply_to' => $email,
-    'subject'  => 'New trip inquiry — ' . $name,
+    'subject'  => 'New trip inquiry from ' . $name,
     'html'     => $html,
     'text'     => $text,
 ];
@@ -109,7 +109,7 @@ unset($ch); // handle freed automatically on PHP 8+
 
 if ($curlErr !== '' || $status < 200 || $status >= 300) {
     error_log('Resend send failed (' . $status . '): ' . ($curlErr ?: $response));
-    respond(false, 'Sorry — something went wrong sending your message. Please email contact@gulfshineservices.us.', $wantsJson);
+    respond(false, 'Sorry, something went wrong sending your message. Please email contact@gulfshineservices.us.', $wantsJson);
 }
 
-respond(true, 'Thank you — your inquiry is on its way. We answer every message personally.', $wantsJson);
+respond(true, 'Thank you! Your inquiry is on its way. We answer every message personally.', $wantsJson);

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Layout — container, sections, grids
+   Layout - container, sections, grids
    ========================================================================== */
 
 .container {
@@ -57,7 +57,7 @@
 .grid--gap-sm { gap: var(--space-md); }
 .grid--gap-lg { gap: var(--space-xl); }
 
-/* Split — image + content side by side */
+/* Split - image + content side by side */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;

@@ -1,5 +1,5 @@
 /**
- * Contact form — prefill from ?inquiry= URL param.
+ * Contact form - prefill from ?inquiry= URL param.
  * Used when a detail-page "Plan This Trip" CTA links here with the
  * destination name as a query param.
  *
@@ -50,7 +50,7 @@
       (ok ? "✓" : "✕") +
       "</span><span class=\"form-status__text\"><strong>" +
       (ok ? "Inquiry sent" : "Not sent") +
-      "</strong> — " +
+      "</strong>: " +
       message +
       "</span>";
     status.classList.toggle("form-status--ok", ok);
@@ -61,9 +61,9 @@
   // No-JS fallback redirect result (?sent=1 / ?sent=0).
   const sent = new URLSearchParams(window.location.search).get("sent");
   if (sent === "1") {
-    show(true, "Thank you — your inquiry is on its way. We answer every message personally.");
+    show(true, "Thank you! Your inquiry is on its way. We answer every message personally.");
   } else if (sent === "0") {
-    show(false, "Sorry — something went wrong. Please email contact@gulfshineservices.us.");
+    show(false, "Sorry, something went wrong. Please email contact@gulfshineservices.us.");
   }
 
   form.addEventListener("submit", async function (event) {
@@ -85,12 +85,12 @@
         data.ok,
         data.message ||
           (data.ok
-            ? "Thank you — your inquiry is on its way."
+            ? "Thank you! Your inquiry is on its way."
             : "Something went wrong. Please email contact@gulfshineservices.us.")
       );
       if (data.ok) form.reset();
     } catch (err) {
-      show(false, "Network error — please email contact@gulfshineservices.us.");
+      show(false, "Network error. Please email contact@gulfshineservices.us.");
     } finally {
       if (button) {
         button.disabled = false;
