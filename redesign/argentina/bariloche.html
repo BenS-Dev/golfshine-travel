@@ -65,27 +65,30 @@
     </div>
   </section>
 
-  <section class="section section--cream" data-program-group>
+  <section class="section section--cream">
     <div class="container container--narrow">
+      <input type="radio" class="program-radio program-radio--3" name="program" id="program-3" checked />
+      <input type="radio" class="program-radio program-radio--6" name="program" id="program-6" />
+
 
       <div class="program-toggle__wrap">
-        <div class="program-toggle" role="tablist" aria-label="Program length">
-          <button type="button" class="program-toggle__btn is-active" data-program="3" role="tab" aria-selected="true">4 Days / 3 Nights</button>
-          <button type="button" class="program-toggle__btn" data-program="6" role="tab" aria-selected="false">7 Days / 6 Nights</button>
+        <div class="program-toggle">
+          <label class="program-toggle__btn" for="program-3">4 Days / 3 Nights</label>
+          <label class="program-toggle__btn" for="program-6">7 Days / 6 Nights</label>
         </div>
       </div>
 
       <!-- 3-night program -->
-      <div class="program-panel" data-program="3" role="tabpanel">
+      <div class="program-panel" data-program="3">
         <p class="program-panel__note">A focused 4-day stay in the Andean lake district.</p>
-        <h2 style="text-align:center;">The program includes the following services:</h2>
-        <ul class="stack" style="max-width:36rem; margin: var(--space-md) auto;">
+        <h2 class="program-services__title">The program includes the following services:</h2>
+        <ul class="stack program-services__list">
           <li>In Bariloche: Lodging at the chosen hotel with breakfast.</li>
           <li>Transfers Airport / Hotel / Airport.</li>
           <li>Short Circuit Excursion.</li>
         </ul>
 
-        <div class="stack-lg" style="margin-top: var(--space-2xl);">
+        <div class="stack-lg itinerary">
           <article>
             <h2>Day 1: Buenos Aires / Bariloche</h2>
             <p class="lead">In the Airport of Buenos Aires City, you will take a fligh to Los Andes Mountain Rage. When you arrive to Bariloche you could immediately see the Cathedral's Hill. Transfers to the chose hotel. The rest of the day is free. According to your flight time you could do an excursion or any other activity. For example, in the Short Circuit you'll find the most wonderful views, combination of mountains, lakes and changing colors depending with the season of the year. If that dy you decide not to do any excursion, the San Carlos de Bariloche's Civic and Commercial Center will offer you a lot of posibilities with an incomprable Nahuel Huapi`s Lake view. Lodging.</p>
@@ -106,10 +109,10 @@
       </div>
 
       <!-- 6-night program -->
-      <div class="program-panel" data-program="6" role="tabpanel" hidden>
+      <div class="program-panel" data-program="6">
         <p class="program-panel__note">Buenos Aires + Bariloche - 3 nights each, with a city tour and Tango Show.</p>
-        <h2 style="text-align:center;">The program includes the following services:</h2>
-        <ul class="stack" style="max-width:46rem; margin: var(--space-md) auto;">
+        <h2 class="program-services__title">The program includes the following services:</h2>
+        <ul class="stack program-services__list">
           <li>At Buenos Aires: 3 nights of lodging in the chosen hotel with breakfast.</li>
           <li>Transfers to Airport / Hotel / Airport.</li>
           <li>Tour along the Buenos Aires City.</li>
@@ -119,7 +122,7 @@
           <li>Dinner Tango's Show.</li>
         </ul>
 
-        <div class="stack-lg" style="margin-top: var(--space-2xl);">
+        <div class="stack-lg itinerary">
           <article><h2>Day 1: Buenos Aires</h2><p class="lead">Welcome to the Tango's city, we were waiting for you! Once you arrive the International Airport of Ezeiza, you will be taken to the chosen hotel. During the evening it will fulfil a City Tour to take the first contact with the take care. The rest of the day is free to begin feeling the demurrage. At night, lodging.</p></article>
           <article><h2>Day 2: Buenos Aires</h2><p class="lead">Breakfast. It's time to enjoy Buenos Aires night life. Lodging.</p></article>
           <article><h2>Day 3: Buenos Aires / Bariloche</h2><p class="lead">Breakfast. Transfers to the Airport of Buenos Aires's City, just to take a fligh to Los Andes Mountain Rage. When you arrive to Bariloche you could immediately see the Cathedral's Hill. Transfers to the chose hotel. The rest of the day is free. According to your flight time you could do an excursion or any other activity. For example, in the Short Circuit you'll find the most wonderful views, combination of mountains, lakes and changing colors depending with the season of the year. Lodging.</p></article>

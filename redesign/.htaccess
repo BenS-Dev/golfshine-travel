@@ -1,0 +1,76 @@
+# Gulfshine Travel - Apache config for the web root.
+# Upload this file to the web root, replacing any existing .htaccess.
+
+DirectoryIndex index.html
+ErrorDocument 404 /404.html
+
+# Turn off directory listings; MultiViews would fight the clean-URL rewrites.
+Options -Indexes -MultiViews
+
+# Pages share names with folders (golf.html + golf/, golf/scotland.html +
+# golf/scotland/). Without this, Apache redirects /golf to /golf/ before the
+# clean-URL rewrite can serve golf.html.
+DirectorySlash Off
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # http -> https
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://gulfshineservices.us%{REQUEST_URI} [R=301,L]
+
+  # www -> apex
+  RewriteCond %{HTTP_HOST} ^www\.gulfshineservices\.us$ [NC]
+  RewriteRule ^ https://gulfshineservices.us%{REQUEST_URI} [R=301,L]
+
+  # Leftover folders are not part of the site
+  RewriteRule ^(__MACOSX|old|Redesign)(/|$) - [R=404,L,NC]
+
+  # /index and /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index(\.html)?[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # /page.html -> /page (only when the browser itself asked for .html,
+  # so internal subrequests like the 404 page never loop)
+  RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # /page/ -> /page when a matching page exists (canonical, no dead ends)
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/$ /$1 [R=301,L]
+
+  # /page -> serve page.html internally. No !-d condition: /golf must serve
+  # golf.html even though a golf/ directory also exists.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# Keep development files out of the public site.
+<FilesMatch "\.(md|MD)$">
+  <IfModule mod_authz_core.c>
+    Require all denied
+  </IfModule>
+  <IfModule !mod_authz_core.c>
+    Order allow,deny
+    Deny from all
+  </IfModule>
+</FilesMatch>
+
+# Security headers.
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Light caching for static assets.
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/jpeg "access plus 7 days"
+  ExpiresByType image/png "access plus 7 days"
+  ExpiresByType image/webp "access plus 7 days"
+  ExpiresByType text/css "access plus 7 days"
+  ExpiresByType application/javascript "access plus 7 days"
+</IfModule>

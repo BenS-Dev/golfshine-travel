@@ -56,27 +56,30 @@
     </div>
   </section>
 
-  <section class="section section--cream" data-program-group>
+  <section class="section section--cream">
     <div class="container container--narrow">
+      <input type="radio" class="program-radio program-radio--3" name="program" id="program-3" checked />
+      <input type="radio" class="program-radio program-radio--6" name="program" id="program-6" />
+
 
       <div class="program-toggle__wrap">
-        <div class="program-toggle" role="tablist" aria-label="Program length">
-          <button type="button" class="program-toggle__btn is-active" data-program="3" role="tab" aria-selected="true">4 Days / 3 Nights</button>
-          <button type="button" class="program-toggle__btn" data-program="6" role="tab" aria-selected="false">7 Days / 6 Nights</button>
+        <div class="program-toggle">
+          <label class="program-toggle__btn" for="program-3">4 Days / 3 Nights</label>
+          <label class="program-toggle__btn" for="program-6">7 Days / 6 Nights</label>
         </div>
       </div>
 
       <!-- 3-night program -->
-      <div class="program-panel" data-program="3" role="tabpanel">
+      <div class="program-panel" data-program="3">
         <p class="program-panel__note">A focused 4-day stay on the Patagonian Atlantic coast.</p>
-        <h2 style="text-align:center;">The program includes the following services:</h2>
-        <ul class="stack" style="max-width:36rem; margin: var(--space-md) auto;">
+        <h2 class="program-services__title">The program includes the following services:</h2>
+        <ul class="stack program-services__list">
           <li>At Puerto Madryn: Lodging at the chosen hotel with breakfast.</li>
           <li>Transfers Airport / Hotel / Airport.</li>
           <li>Traditional Excursion to Peninsula de Valdez.</li>
         </ul>
 
-        <div class="stack-lg" style="margin-top: var(--space-2xl);">
+        <div class="stack-lg itinerary">
           <article>
             <h2>Day 1: Buenos Aires / Puerto Madryn</h2>
             <p class="lead">From the Airport of the City of Buenos Aires you will embark toward the Patagonia. You will step Puerto Madryn, area of Frank Whales and of frank winds. Transfer to the selected hotel. The rest of the day is free. According to your flight time, you will be able to take advantage to carry out some activity or trip. The Submarine Baptism would be a great experience of Diving in the Argentinean Sea. At night a walk for the coast will define the infinite on the sea.</p>
@@ -97,10 +100,10 @@
       </div>
 
       <!-- 6-night program -->
-      <div class="program-panel" data-program="6" role="tabpanel" hidden>
+      <div class="program-panel" data-program="6">
         <p class="program-panel__note">Buenos Aires + Puerto Madryn - 3 nights each, with a city tour and Tango Show.</p>
-        <h2 style="text-align:center;">The program includes the following services:</h2>
-        <ul class="stack" style="max-width:46rem; margin: var(--space-md) auto;">
+        <h2 class="program-services__title">The program includes the following services:</h2>
+        <ul class="stack program-services__list">
           <li>At Buenos Aires: 3 nights of lodging in the chosen hotel with breakfast.</li>
           <li>Transfers to Airport / Hotel / Airport.</li>
           <li>Tour along the Buenos Aires City.</li>
@@ -110,7 +113,7 @@
           <li>Dinner Tango's Show.</li>
         </ul>
 
-        <div class="stack-lg" style="margin-top: var(--space-2xl);">
+        <div class="stack-lg itinerary">
           <article><h2>Day 1: Buenos Aires</h2><p class="lead">Welcome to the Tango's city, we were waiting for you! Once you arrive the International Airport of Ezeiza, you will be taken to the chosen hotel. During the evening it will fulfil a City Tour to take the first contact with the take care. The rest of the day is free to begin feeling the demurrage. At night, lodging.</p></article>
           <article><h2>Day 2: Buenos Aires</h2><p class="lead">Breakfast. It's time to enjoy Buenos Aires night life. Lodging.</p></article>
           <article><h2>Day 3: Buenos Aires / Puerto Madryn</h2><p class="lead">Breakfast. Transfer to the Airport of Buenos Aires' City to fly to the Patagonia. You'll land there, in a place characteristic because off the Francas' Whales and winds. Transfer to the chosen hotel. The rest of the day is free. According to your flight time, you could do another activity or excursion. The Submarine Baptism could be an great experience about diving in the Argentine Sea. At night we suggest a walk along the coast side. Lodging.</p></article>

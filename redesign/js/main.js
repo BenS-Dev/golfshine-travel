@@ -34,31 +34,11 @@
     });
   }
 
-  // Program toggle (3N / 6N switcher on Argentina destination pages)
-  const programGroups = document.querySelectorAll("[data-program-group]");
-  programGroups.forEach((group) => {
-    const buttons = group.querySelectorAll(".program-toggle__btn");
-    const panels = group.querySelectorAll(".program-panel");
-
-    const activate = (value) => {
-      buttons.forEach((b) => {
-        const match = b.dataset.program === value;
-        b.classList.toggle("is-active", match);
-        b.setAttribute("aria-selected", match ? "true" : "false");
-      });
-      panels.forEach((p) => {
-        p.hidden = p.dataset.program !== value;
-      });
-    };
-
-    buttons.forEach((b) => {
-      b.addEventListener("click", () => {
-        activate(b.dataset.program);
-        history.replaceState(null, "", "#program-" + b.dataset.program);
-      });
-    });
-
-    const hashMatch = window.location.hash.match(/program-(\d+)/);
-    if (hashMatch) activate(hashMatch[1]);
-  });
+  // Program toggle is pure CSS (radio inputs); JS only honors #program-N
+  // deep links, e.g. /argentina/bariloche#program-6.
+  const programHash = window.location.hash.match(/^#program-(\d+)$/);
+  if (programHash) {
+    const radio = document.getElementById("program-" + programHash[1]);
+    if (radio && radio.classList.contains("program-radio")) radio.checked = true;
+  }
 })();

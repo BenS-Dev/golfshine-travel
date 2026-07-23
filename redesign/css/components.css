@@ -680,3 +680,111 @@
 .form-status--error .form-status__icon {
   background: #a0281e;
 }
+
+/* ----- CSS-only program toggle (radio-driven; works without JS) ----- */
+.program-radio {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.program-radio--3:checked ~ .program-toggle__wrap .program-toggle__btn[for="program-3"],
+.program-radio--6:checked ~ .program-toggle__wrap .program-toggle__btn[for="program-6"] {
+  background: var(--color-deep-green);
+  color: var(--color-cream);
+}
+
+.program-radio--3:checked ~ .program-panel[data-program="6"],
+.program-radio--6:checked ~ .program-panel[data-program="3"] {
+  display: none;
+}
+
+.program-radio:focus-visible ~ .program-toggle__wrap .program-toggle {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+}
+
+/* ----- Trip program: services card ----- */
+.program-services__title {
+  max-width: 720px;
+  margin: var(--space-xl) auto var(--space-md);
+  text-align: center;
+  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  color: var(--color-deep-green);
+}
+
+.program-services__title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 1px;
+  margin: var(--space-sm) auto 0;
+  background: var(--color-gold);
+}
+
+.program-services__list {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: var(--space-md) clamp(24px, 4vw, 40px);
+  background: var(--color-white);
+  border: 1px solid var(--color-line-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.program-services__list > li {
+  position: relative;
+  padding-left: 26px;
+  font-size: 0.97rem;
+  line-height: 1.6;
+  color: var(--text-dark);
+}
+
+.program-services__list > li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.7em;
+  width: 14px;
+  height: 1px;
+  background: var(--color-gold);
+}
+
+/* ----- Trip itinerary: day-by-day timeline ----- */
+.itinerary {
+  max-width: 760px;
+  margin: var(--space-xl) auto 0;
+  padding-left: clamp(24px, 4vw, 44px);
+  border-left: 1px solid var(--color-line-dark);
+}
+
+.itinerary > article {
+  position: relative;
+}
+
+.itinerary > article::before {
+  content: "";
+  position: absolute;
+  top: 14px;
+  left: calc(clamp(24px, 4vw, 44px) * -1 - 5px);
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--color-gold);
+  box-shadow: 0 0 0 4px var(--color-cream);
+}
+
+.itinerary > article > h2,
+.itinerary > article > h3 {
+  font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+  color: var(--color-deep-green);
+  margin-bottom: var(--space-2xs);
+}
+
+.itinerary .lead,
+.itinerary > article > p {
+  font-size: 1rem;
+  line-height: 1.7;
+  max-width: 62ch;
+  margin-bottom: 0;
+}
