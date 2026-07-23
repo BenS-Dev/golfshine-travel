@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="icon" type="image/png" href="favicon.png" />
-  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="assets/images/logo/favicon.png" />
+  <link rel="apple-touch-icon" href="assets/images/logo/apple-touch-icon.png" />
   <title>Plan Your Trip | Contact Gulfshine Travel</title>
   <meta name="description" content="Send a short inquiry and we'll come back with a draft itinerary." />
   <link rel="canonical" href="https://gulfshineservices.us/contact.html" />
@@ -95,11 +95,16 @@
       <div class="contact-grid">
 
         <!-- Inquiry form -->
-        <form class="form" id="inquiry-form" action="send.php" method="post" novalidate>
+        <form class="form" id="inquiry-form" action="https://api.web3forms.com/submit" method="post" novalidate>
+          <!-- Web3Forms: paste your access key from web3forms.com below. The key
+               only lets the form send email to you; it is safe to be public. -->
+          <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY_HERE" />
+          <input type="hidden" name="subject" value="New trip inquiry - Gulfshine Travel" />
+          <input type="hidden" name="from_name" value="Gulfshine Travel Website" />
+          <!-- Where visitors land after submitting with JavaScript off. -->
+          <input type="hidden" name="redirect" value="https://gulfshineservices.us/contact.html?sent=1" />
           <!-- Honeypot: hidden from people, tempting to bots. Leave empty. -->
-          <div aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden">
-            <label>Company<input type="text" name="company" tabindex="-1" autocomplete="off" /></label>
-          </div>
+          <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden" />
           <div class="form-row">
             <div class="field">
               <label for="name">Name</label>

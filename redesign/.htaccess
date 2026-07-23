@@ -1,15 +1,24 @@
 # Gulfshine Travel - server rules for public_html
 
-# Never serve the Resend config (holds the API key) or its sample.
-<FilesMatch "^config(\.sample)?\.php$">
+# Keep development files out of the public site.
+<FilesMatch "\.(md|MD)$">
   Require all denied
 </FilesMatch>
 
-# Keep development files out of the public site.
-<FilesMatch "\.(md|py|csv)$">
-  Require all denied
-</FilesMatch>
-RedirectMatch 404 ^/(docs|tools)(/|$)
+# Security headers.
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set X-Frame-Options "SAMEORIGIN"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+  Header set Permissions-Policy "camera=(), microphone=(), geolocation=()"
+</IfModule>
+
+# Force HTTPS so form submissions and browsing are always encrypted.
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
+</IfModule>
 
 # Custom 404 page.
 ErrorDocument 404 /404.html

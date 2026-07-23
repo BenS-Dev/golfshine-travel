@@ -33,10 +33,10 @@
 })();
 
 /**
- * Contact form submission → send.php (Resend).
+ * Contact form submission → Web3Forms (static, no server code).
  * Progressive enhancement: intercept the submit, POST via fetch, show an
- * inline status message. With JS off, the form posts normally and send.php
- * redirects back to contact.html?sent=1 / ?sent=0 (handled below).
+ * inline status message. With JS off, the form posts normally and the
+ * hidden "redirect" field brings the visitor back to contact.html?sent=1.
  */
 (function () {
   const form = document.getElementById("inquiry-form");
@@ -58,16 +58,20 @@
     status.scrollIntoView({ behavior: "smooth", block: "center" });
   }
 
-  // No-JS fallback redirect result (?sent=1 / ?sent=0).
-  const sent = new URLSearchParams(window.location.search).get("sent");
-  if (sent === "1") {
+  // No-JS fallback redirect result (?sent=1).
+  if (new URLSearchParams(window.location.search).get("sent") === "1") {
     show(true, "Thank you! Your inquiry is on its way. We answer every message personally.");
-  } else if (sent === "0") {
-    show(false, "Sorry, something went wrong. Please email contact@gulfshineservices.us.");
   }
 
   form.addEventListener("submit", async function (event) {
     event.preventDefault();
+    const required = ["name", "email", "message"].map(function (id) {
+      return form.querySelector("#" + id);
+    });
+    if (required.some(function (field) { return !field.value.trim(); })) {
+      show(false, "Please fill in your name, email, and a short message.");
+      return;
+    }
     const button = form.querySelector('button[type="submit"]');
     const original = button ? button.textContent : "";
     if (button) {
@@ -75,20 +79,21 @@
       button.textContent = "Sending…";
     }
     try {
+      const body = new FormData(form);
+      body.delete("redirect"); // fetch path shows inline status instead
       const res = await fetch(form.action, {
         method: "POST",
-        body: new FormData(form),
-        headers: { "X-Requested-With": "fetch", Accept: "application/json" },
+        body: body,
+        headers: { Accept: "application/json" },
       });
-      const data = await res.json().catch(() => ({ ok: res.ok, message: "" }));
+      const data = await res.json().catch(function () { return { success: res.ok }; });
       show(
-        data.ok,
-        data.message ||
-          (data.ok
-            ? "Thank you! Your inquiry is on its way."
-            : "Something went wrong. Please email contact@gulfshineservices.us.")
+        Boolean(data.success),
+        data.success
+          ? "Thank you! Your inquiry is on its way. We answer every message personally."
+          : "Something went wrong. Please email contact@gulfshineservices.us."
       );
-      if (data.ok) form.reset();
+      if (data.success) form.reset();
     } catch (err) {
       show(false, "Network error. Please email contact@gulfshineservices.us.");
     } finally {
